@@ -42,6 +42,12 @@ function convertCurrency(amount, price, symbol) {
     descripton.textContent = `${symbol}1 = ${formatCurrencyBRL(price)}`;
     //Calcula o total
     let total = amount * price;
+
+    // Verifica se o resultado não é um número
+    if (isNaN(total)) {
+      return alert("Por favor, digite o valor corretamente para converter.");
+    }
+
     //Formata o total para BRL substituindo R$ por vazio
     total = formatCurrencyBRL(total).replace("R$", "");
     //Exibe o resultado total
